@@ -42,11 +42,11 @@ def connect_movie_table():
                 numberOfEntries = int(input("How many fields do you want to update?: "))
 
                 for i in range(numberOfEntries):
-                    movie_id = int(input("Enter movie id: "))
+                    movie_id = input("Enter movie id: ")
                     column_name = input("Enter column name: ")
                     updated_value = input("Enter new value: ")
-                    update = column_name + "=" + updated_value
-                    sql_update = "UPDATE movie SET " + column_name + "=" + "\'" + updated_value + "\' WHERE movie_id = " + str(movie_id)
+                    # update = column_name + "=" + updated_value
+                    sql_update = "UPDATE movie SET " + column_name + "=" + "\'" + updated_value + "\' WHERE movie_id = " + movie_id
                     db_cursor.execute(sql_update)
                     conn.commit()
                     print(db_cursor.rowcount, 'field(s) was updated')
