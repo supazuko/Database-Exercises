@@ -1,11 +1,17 @@
 import mysql.connector
 from mysql.connector import Error
+import stdiomask
 
 def connect_ratings_table():
     conn = None
+
+    host = input('Enter Host for database: ')
+    database = input('Enter database name: ')
+    user = input('Enter user for database: ')
+    password = stdiomask.getpass("Enter password: ")
+
     try:
-        conn = mysql.connector.connect(host = 'localhost', database = 'movie_review',
-        user = 'root', password = 'sanjunipero') 
+        conn = mysql.connector.connect(host=host, database=database, user=user, password=password) 
         print('Connecting to database server...')
         if conn.is_connected:
             print('Connected to database server')
